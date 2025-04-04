@@ -2,9 +2,11 @@ package com.faith.harakamall.ui.screens.contact
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 
 @Composable
-fun Contactscreen(){
+fun Contactscreen(navController: NavController){
 
 
 }
@@ -12,4 +14,6 @@ fun Contactscreen(){
 
 @Preview
 @Composable
-fun ContactScreenPreview(){}
+fun ContactScreenPreview(){
+    Contactscreen(rememberNavController())
+}
