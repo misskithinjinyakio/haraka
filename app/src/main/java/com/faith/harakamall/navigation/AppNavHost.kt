@@ -7,6 +7,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.faith.harakamall.ui.screens.about.AboutScreen
+import com.faith.harakamall.ui.screens.dashboard.DashbaordScreen
 import com.faith.harakamall.ui.screens.home.Homescreen
 import com.faith.harakamall.ui.screens.item.ItemScreen
 
@@ -14,7 +15,7 @@ import com.faith.harakamall.ui.screens.item.ItemScreen
 fun AppNavHost(
     modifier: Modifier = Modifier,
     navController: NavHostController = rememberNavController(),
-    startDestination: String = ROUT_START
+    startDestination: String = ROUT_DASHBOARD
 ) {
 
     NavHost(
@@ -34,6 +35,14 @@ fun AppNavHost(
         }
         composable(ROUT_START) {
             ItemScreen(navController)
+
+        }
+        composable(ROUT_INTENT) {
+            ItemScreen(navController)
+
+        }
+        composable(ROUT_DASHBOARD) {
+            DashbaordScreen(navController)
 
         }
 

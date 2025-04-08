@@ -44,10 +44,10 @@ Column (
     )
     Spacer(modifier = Modifier.height(20.dp))
 
-   Image(
-       painter = painterResource(R.drawable.image1),
-       contentDescription = "home"
-   )
+    Image(
+        painter = painterResource(R.drawable.image1),
+        contentDescription = "home"
+    )
     Text(text = "Welcome to my App")
     Spacer(modifier = Modifier.height(20.dp))
     Text(text = "Quick Mall, also HarakaMall, is a Kenyan supermarket chain. As of June 2022, it was the second largest supermarket chain in the country, behind market leader, Naivas Limited, with 84 stores and over 8,000 employees.")
