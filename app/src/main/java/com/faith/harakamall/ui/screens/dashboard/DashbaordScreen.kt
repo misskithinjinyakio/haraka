@@ -2,6 +2,7 @@ package com.faith.harakamall.ui.screens.dashboard
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -34,6 +35,9 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.faith.harakamall.R
+import com.faith.harakamall.navigation.ROUT_ABOUT
+import com.faith.harakamall.navigation.ROUT_HOME
+import com.faith.harakamall.navigation.ROUT_ITEM
 import com.faith.harakamall.ui.theme.neworange
 import com.faith.harakamall.ui.theme.neworange1
 import java.nio.file.WatchEvent
@@ -51,12 +55,10 @@ fun DashbaordScreen(navController: NavController){
                 shape = RoundedCornerShape(bottomStart = 60.dp, bottomEnd = 60.dp),
                 colors = CardDefaults.cardColors(neworange1)
             ) {
-                TopAppBar(
-                    title = { Text(text = "Dashbaord section") },
-                    navigationIcon = {
-                        IconButton(onClick = {}) {Icon(imageVector = Icons.Default.Menu, contentDescription = "") }
-                    }
-                )
+               TopAppBar(
+                  title = { Text(text = "Dashbaord section") },
+                   navigationIcon = {
+                      IconButton(onClick = {}) {Icon(imageVector = Icons.Default.Menu, contentDescription = "") }             } )
 
             }
             //end of card
@@ -66,7 +68,18 @@ fun DashbaordScreen(navController: NavController){
                     .padding(start = 20.dp, end = 20.dp)
                     .offset(y=90.dp),
                      shape = RoundedCornerShape(bottomStart = 60.dp, bottomEnd = 60.dp, topStart = 60.dp, topEnd = 60.dp)
-            ){  }
+            ){
+
+                Column(
+                    modifier = Modifier.fillMaxSize(),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.Center
+                ) {
+                    Text(text = "WELCOME TO HARAKAMALL", fontSize = 20.sp,
+
+                        color = neworange)
+                }
+            }
 
         }
         //end of box
@@ -76,7 +89,10 @@ fun DashbaordScreen(navController: NavController){
 
 
             //card 1
-            Card (modifier = Modifier.width(150.dp).height(180.dp),
+            Card (
+                modifier = Modifier.width(150.dp).height(180.dp).clickable{navController.navigate(
+                    ROUT_HOME
+                )}
                 ){
                 Column(modifier = Modifier.fillMaxSize(),
                     horizontalAlignment = Alignment.CenterHorizontally,
@@ -90,9 +106,12 @@ fun DashbaordScreen(navController: NavController){
 
             }
             //end of card 1
-            Spacer(modifier = Modifier.width(20.dp))
+            Spacer(modifier = Modifier.width(40.dp))
             //card 2
-            Card (modifier = Modifier.width(150.dp).height(180.dp),
+            Card (
+                modifier = Modifier.width(150.dp).height(180.dp).clickable{navController.navigate(
+                    ROUT_ABOUT
+                )}
             ){
                 Column(modifier = Modifier.fillMaxSize(),
                     horizontalAlignment = Alignment.CenterHorizontally,
@@ -122,8 +141,8 @@ fun DashbaordScreen(navController: NavController){
         Row (modifier = Modifier.padding(start = 20.dp)){
 
 
-            //card 1
-            Card (modifier = Modifier.width(150.dp).height(180.dp),
+            //card 3
+            Card (modifier = Modifier.width(150.dp).height(180.dp).clickable{navController.navigate(ROUT_ITEM)}
             ){
                 Column(modifier = Modifier.fillMaxSize(),
                     horizontalAlignment = Alignment.CenterHorizontally,
@@ -137,9 +156,11 @@ fun DashbaordScreen(navController: NavController){
 
             }
             //end of card 1
-            Spacer(modifier = Modifier.width(20.dp))
+            Spacer(modifier = Modifier.width(40.dp))
             //card 2
-            Card (modifier = Modifier.width(150.dp).height(180.dp),
+            Card (modifier = Modifier.width(150.dp).height(180.dp).clickable{navController.navigate(
+                ROUT_ITEM
+            )}
             ){
                 Column(modifier = Modifier.fillMaxSize(),
                     horizontalAlignment = Alignment.CenterHorizontally,
