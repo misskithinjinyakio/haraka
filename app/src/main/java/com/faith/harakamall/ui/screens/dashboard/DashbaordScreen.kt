@@ -158,7 +158,9 @@ fun DashbaordScreen(navController: NavController){
             //end of card 1
             Spacer(modifier = Modifier.width(40.dp))
             //card 2
-            Card (modifier = Modifier.width(150.dp).height(180.dp).clickable{navController.navigate(
+
+            Card (modifier = Modifier.width(150.dp).height(180.dp)
+                .clickable{navController.navigate(
                 ROUT_ITEM
             )}
             ){

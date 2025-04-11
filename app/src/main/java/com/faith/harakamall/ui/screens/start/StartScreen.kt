@@ -30,6 +30,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.faith.harakamall.R
+import com.faith.harakamall.navigation.ROUT_DASHBOARD
 import com.faith.harakamall.navigation.ROUT_ITEM
 import com.faith.harakamall.ui.theme.neworange
 
@@ -68,7 +69,7 @@ fun StartScreen(navController: NavController){
             )
         Spacer(modifier = Modifier.height(20.dp))
         Button(onClick = {
-            navController.navigate(ROUT_ITEM)
+            navController.navigate(ROUT_DASHBOARD)
         },
             colors= ButtonDefaults.buttonColors(Color.Red),
             shape = RoundedCornerShape(10.dp),

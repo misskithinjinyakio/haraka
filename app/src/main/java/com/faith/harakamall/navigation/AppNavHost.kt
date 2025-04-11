@@ -10,12 +10,14 @@ import com.faith.harakamall.ui.screens.about.AboutScreen
 import com.faith.harakamall.ui.screens.dashboard.DashbaordScreen
 import com.faith.harakamall.ui.screens.home.Homescreen
 import com.faith.harakamall.ui.screens.item.ItemScreen
+import com.faith.harakamall.ui.screens.service.ServiceScreen
+import com.faith.harakamall.ui.screens.splash.SplashScreen
 
 @Composable
 fun AppNavHost(
     modifier: Modifier = Modifier,
     navController: NavHostController = rememberNavController(),
-    startDestination: String = ROUT_DASHBOARD
+    startDestination: String = ROUT_SPLASH
 ) {
 
     NavHost(
@@ -45,6 +47,24 @@ fun AppNavHost(
             DashbaordScreen(navController)
 
         }
+        composable(ROUT_SERVICE) {
+            ServiceScreen(navController)
+
+        }
+        composable(ROUT_SPLASH) {
+            SplashScreen(navController)
+
+        }
+        composable(ROUT_SAMATHA) {
+            SamathaScreen(navController)
+
+        }
+
 
     }
+}
+
+@Composable
+fun SamathaScreen(x0: NavHostController) {
+    TODO("Not yet implemented")
 }

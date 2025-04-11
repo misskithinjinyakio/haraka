@@ -6,3 +6,7 @@ const val ROUT_ITEM = "item"
 const val ROUT_START = "start"
 const val ROUT_INTENT = "intent"
 const val ROUT_DASHBOARD = "dashbaord"
+const val ROUT_SERVICE = "service"
+const val ROUT_SPLASH = "splash"
+const val ROUT_SAMATHA = "samatha"
+
