@@ -2,16 +2,22 @@ package com.faith.harakamall.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.faith.harakamall.data.UserDatabase
+import com.faith.harakamall.repository.UserRepository
 import com.faith.harakamall.ui.screens.about.AboutScreen
+import com.faith.harakamall.ui.screens.auth.LoginScreen
+import com.faith.harakamall.ui.screens.auth.RegisterScreen
 import com.faith.harakamall.ui.screens.dashboard.DashbaordScreen
 import com.faith.harakamall.ui.screens.home.Homescreen
 import com.faith.harakamall.ui.screens.item.ItemScreen
 import com.faith.harakamall.ui.screens.service.ServiceScreen
 import com.faith.harakamall.ui.screens.splash.SplashScreen
+import com.faith.harakamall.viewmodel.AuthViewModel
 
 @Composable
 fun AppNavHost(
@@ -19,6 +25,7 @@ fun AppNavHost(
     navController: NavHostController = rememberNavController(),
     startDestination: String = ROUT_SPLASH
 ) {
+    val context= LocalContext.current
 
     NavHost(
         navController = navController,
@@ -59,6 +66,28 @@ fun AppNavHost(
             SamathaScreen(navController)
 
         }
+        //AUTHENTICATION
+
+        // Initialize Room Database and Repository for Authentication
+        val appDatabase = UserDatabase.getDatabase(context)
+        val authRepository = UserRepository(appDatabase.userDao())
+        val authViewModel: AuthViewModel = AuthViewModel(authRepository)
+        composable(ROUT_REGISTER) {
+            RegisterScreen(authViewModel, navController) {
+                navController.navigate(ROUT_LOGIN) {
+                    popUpTo(ROUT_REGISTER) { inclusive = true }
+                }
+            }
+        }
+
+        composable(ROUT_LOGIN) {
+            LoginScreen(authViewModel, navController) {
+                navController.navigate(ROUT_HOME) {
+                    popUpTo(ROUT_LOGIN) { inclusive = true }
+                }
+            }
+        }
+
 
 
     }

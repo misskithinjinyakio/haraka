@@ -9,4 +9,9 @@ const val ROUT_DASHBOARD = "dashbaord"
 const val ROUT_SERVICE = "service"
 const val ROUT_SPLASH = "splash"
 const val ROUT_SAMATHA = "samatha"
+const val ROUT_REGISTER = "register"
+const val ROUT_LOGIN = "login"
+
+
+
 
